@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DisasterResponder: Technical Overview & Deployment Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #d32f2f;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1976d2;
+            margin-top: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #388e3c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #fff9c4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 0.8em;
+            color: #777;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
+        }
+        .badge-critical { background-color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>DisasterResponder: Technical Overview & Deployment Report</h1>
+    
+    <p><strong>DisasterResponder</strong> is a mission-critical, full-stack emergency coordination platform designed to provide real-time situational awareness, automated triage, and tactical dispatch management for high-stakes disaster scenarios.</p>
+
+    <hr>
+
+    <h2>🚀 Core Features & Interface</h2>
+
+    <h3>1. Intelligent Triage & Incident Dashboard</h3>
+    <p>The central command hub provides a sub-second analysis of incoming emergency reports.</p>
+    <ul>
+        <li><strong>Sub-Second Analysis</strong>: Uses a sophisticated rule-based engine to instantly parse raw incident reports.</li>
+        <li><strong>Automatic Extraction</strong>: Detects location, disaster type (Fire, Flood, Earthquake, etc.), and casualty estimates.</li>
+        <li><strong>Priority Ranking</strong>: Categorizes incidents into Low, Medium, High, or Critical severity.</li>
+        <li><strong>Dynamic Geocoding</strong>: Integrated Nominatim geocoding engine that automatically converts identified location names into precise geospatial coordinates.</li>
+        <li><strong>Real-time Status Tracking</strong>: Full lifecycle management from 'Pending' to 'Active' and 'Resolved'.</li>
+    </ul>
+
+    <h3>2. Tactical Geospatial Mapping</h3>
+    <p>Integrated map visualization for precise resource positioning and threat tracking.</p>
+    <ul>
+        <li><strong>Dynamic Overlays</strong>: Tactical map with custom-styled Leaflet layers optimized for dark-mode situational awareness.</li>
+        <li><strong>Pulsing Markers</strong>: Severity-aware markers that animate to indicate the intensity and urgency of an incident.</li>
+        <li><strong>Geographic Clustering</strong>: Automatically fits the view to active incident clusters for rapid tactical assessment.</li>
+    </ul>
+
+    <h3>3. Performance Analytics & KPIs</h3>
+    <p>Data-driven intelligence to monitor system efficiency and resource strain.</p>
+    <ul>
+        <li><strong>Deployment KPI Logic</strong>: Real-time calculation of "Average Deployment Time" incorporating a "Resource Load Penalty"—deployment times increase dynamically as system load rises, reflecting real-world responder exhaustion.</li>
+        <li><strong>Capacity Monitoring</strong>: Visual gauges for regional medical assets including ICU beds, Trauma bays, and Burn units.</li>
+        <li><strong>7-Day Volume Charts</strong>: Historical analysis of incident trends to predict future system load.</li>
+        <li><strong>Financial Burn Rate</strong>: Live expenditure tracking for personnel, fuel, and aviation resources.</li>
+    </ul>
+
+    <h3>4. Fleet & Drone Management</h3>
+    <p>Coordination of ground-based responders and aerial surveillance assets.</p>
+    <ul>
+        <li><strong>Responder Status</strong>: Real-time tracking of Fire, EMS, and Police units.</li>
+        <li><strong>Drone Surveillance</strong>: Dedicated monitoring interface for aerial reconnaissance and remote area assessment.</li>
+        <li><strong>Shift Management</strong>: Optimized scheduling to prevent personnel fatigue during extended disasters.</li>
+    </ul>
+
+    <h3>5. Secure Terminal & Emergency Alerts</h3>
+    <p>Integrated security protocols for station handovers and city-wide notifications.</p>
+    <ul>
+        <li><strong>PIN-Protected Access</strong>: Integrated security lock screen (Terminal Lock) for secure environment management.</li>
+        <li><strong>Emergency Siren System</strong>: High-priority alert activation for immediate city-wide notification.</li>
+        <li><strong>Ticker Alerts</strong>: Real-time scrolling ticker for severe weather advisories and Amber alerts.</li>
+    </ul>
+
+    <hr>
+
+    <h2>🏗️ Technical Architecture</h2>
+    <p>The system utilizes a modern decoupled architecture:</p>
+    <ul>
+        <li><strong>Frontend</strong>: React (Vite) with Vanilla CSS Design System.</li>
+        <li><strong>Backend</strong>: FastAPI (Python) Asynchronous API.</li>
+        <li><strong>Database</strong>: SQLite with SQLAlchemy ORM.</li>
+    </ul>
+
+    <hr>
+
+    <h2>🛠️ Tool & Technology Mapping</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th>Purpose</th>
+                <th>Implementation Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>React (Vite)</strong></td>
+                <td>UI Framework</td>
+                <td>High-performance component-based architecture for real-time updates.</td>
+            </tr>
+            <tr>
+                <td><strong>Vanilla CSS</strong></td>
+                <td>Styling & Aesthetics</td>
+                <td>Custom-crafted dark mode theme with glassmorphism and animations.</td>
+            </tr>
+            <tr>
+                <td><strong>FastAPI</strong></td>
+                <td>Backend API</td>
+                <td>Asynchronous Python framework for sub-second incident processing.</td>
+            </tr>
+            <tr>
+                <td><strong>SQLAlchemy</strong></td>
+                <td>Database ORM</td>
+                <td>Reliable mapping of incident objects to persistent storage.</td>
+            </tr>
+            <tr>
+                <td><strong>SQLite</strong></td>
+                <td>Data Persistence</td>
+                <td>Lightweight, high-reliability database for mission-critical logs.</td>
+            </tr>
+            <tr>
+                <td><strong>Leaflet.js</strong></td>
+                <td>Mapping Engine</td>
+                <td>Interactive geospatial visualization with custom tactical overlays.</td>
+            </tr>
+            <tr>
+                <td><strong>Recharts</strong></td>
+                <td>Data Visualization</td>
+                <td>Dynamic charting for performance KPIs and resource monitoring.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>🔒 Security & Deployment</h2>
+    <p>The system is built for rapid deployment in local field environments.</p>
+    <ul>
+        <li><strong>Deployment Time</strong>: &lt; 10 seconds for full system initialization.</li>
+        <li><strong>Security</strong>: Default PIN-based authorization for administrative functions.</li>
+        <li><strong>Data Integrity</strong>: Atomic transactions ensure incident logs remain consistent even during hardware failures.</li>
+    </ul>
+
+    <div class="footer">
+        Report generated for technical submission and project documentation. 🚨
+    </div>
+
+</body>
+</html>
